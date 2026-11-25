@@ -1,0 +1,20 @@
+flowchart LR
+  Staff[Petugas Perpustakaan]
+  Member[Anggota: Mahasiswa / Dosen]
+  subgraph System["Sistem Informasi Perpustakaan UNPAM"]
+    Login((Login sesuai hak akses))
+    Books((Kelola data buku))
+    Members((Kelola data anggota))
+    Loan((Proses peminjaman))
+    Return((Proses pengembalian))
+    Catalog((Lihat dan cari katalog))
+    History((Lihat riwayat pinjaman))
+  end
+  Staff --- Login
+  Staff --- Books
+  Staff --- Members
+  Staff --- Loan
+  Staff --- Return
+  Member --- Login
+  Member --- Catalog
+  Member --- History
