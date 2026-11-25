@@ -52,7 +52,7 @@ Pastikan ekstensi `pdo_mysql` dan `mbstring` aktif pada konfigurasi PHP.
 2. Letakkan folder repository di `C:\\xampp\\htdocs\\test-ujikm`.
 3. Buka XAMPP Control Panel, lalu jalankan **Apache** dan **MySQL**.
 4. Buka `http://localhost/phpmyadmin`.
-5. Pilih menu **Import**, pilih file `database/schema.sql`, kemudian jalankan import.
+5. Pilih menu **Import**, pilih file `database/schema.sql`, kemudian jalankan import (opsional: import `database/seed.sql` untuk data contoh buku, anggota, dan transaksi).
 6. Periksa koneksi database di `config/database.php`. Nilai bawaan XAMPP:
    - Host: `127.0.0.1`
    - Database: `perpustakaan_unpam`
@@ -93,18 +93,31 @@ Satu transaksi saat ini mencatat satu eksemplar dari satu judul buku. Jika anggo
 ```text
 test-ujikm/
 ├── assets/
+│   ├── app.js
 │   └── style.css
 ├── config/
 │   └── database.php
 ├── database/
-│   └── schema.sql
+│   ├── schema.sql
+│   └── seed.sql
 ├── docs/
 │   ├── spesifikasi-kebutuhan.md
 │   ├── presentasi-skalabilitas.md
 │   ├── use-case.mmd
 │   └── erd.mmd
 ├── includes/
-│   └── helpers.php
+│   ├── actions.php
+│   ├── helpers.php
+│   └── layout.php
+├── pages/
+│   ├── books.php
+│   ├── catalog.php
+│   ├── dashboard.php
+│   ├── history.php
+│   ├── loans.php
+│   ├── login.php
+│   ├── members.php
+│   └── settings.php
 ├── .gitignore
 ├── index.php
 ├── setup_admin.php
