@@ -1,0 +1,40 @@
+erDiagram
+  USERS ||--o| MEMBERS : "memiliki profil"
+  USERS ||--o{ LOANS : "diproses petugas"
+  MEMBERS ||--o{ LOANS : "melakukan peminjaman"
+  BOOKS ||--o{ LOANS : "tercatat pada transaksi"
+
+  USERS {
+    bigint id PK
+    varchar name
+    varchar email UK
+    varchar password_hash
+    enum role
+  }
+  MEMBERS {
+    bigint id PK
+    bigint user_id FK
+    varchar member_number UK
+    enum member_type
+    varchar phone
+    text address
+    boolean active
+  }
+  BOOKS {
+    bigint id PK
+    varchar isbn UK
+    varchar title
+    varchar author
+    varchar publisher
+    smallint publication_year
+    int stock
+  }
+  LOANS {
+    bigint id PK
+    bigint member_id FK
+    bigint book_id FK
+    date loaned_at
+    date returned_at
+    enum status
+    bigint processed_by FK
+  }
